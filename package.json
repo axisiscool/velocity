@@ -1,6 +1,6 @@
 {
   "name": "velocity-api",
-  "version": "1.0.0-nightly.3",
+  "version": "1.0.0",
   "description": "A super fast API Wrapper for Perspective.",
   "main": "dist/index.js",
   "scripts": {
