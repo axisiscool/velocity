@@ -1,5 +1,5 @@
 {
-  "name": "velocity",
+  "name": "velocity-api",
   "version": "1.0.0-nightly.1",
   "description": "A super fast API Wrapper for Perspective.",
   "main": "dist/index.js",
