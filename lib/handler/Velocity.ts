@@ -20,7 +20,7 @@ export class Velocity {
   public async processMessage(
     message: string,
     reqOptions: IVelocityOptions = {}
-  ) {
+  ): Promise<IAttributeScores> {
     const {
       attributes = ['SPAM', 'TOXICITY'],
       context,
@@ -55,6 +55,8 @@ export class Velocity {
           );
         }
       }
+
+      return scoreValues;
     } catch (error) {
       throw new Error(`[Velocity] ${error.message}`);
     }

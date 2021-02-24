@@ -32,7 +32,7 @@ const velocity = new Velocity('API_KEY');
 
     console.log(scores.SPAM) // SPAM: 0.25
     console.log(scores.TOXICITY) // TOXICITY: 0.65
-});
+})();
 ```
 
 ### License
