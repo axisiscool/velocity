@@ -5,6 +5,7 @@ import {
   IRequestedAttributes,
   IAnalysisResults,
   IAttributeScores,
+  TValidAttributes,
 } from '../util/Types';
 import stripTags from 'striptags';
 
@@ -71,14 +72,14 @@ export class Velocity {
       );
   }
 
-  private _validAttributes(attributes: string[]): boolean {
+  private _validAttributes(attributes: TValidAttributes[]): boolean {
     if (!attributes.length)
       throw new Error(
         '[Velocity] Please provide at least one attribute to score.'
       );
 
     for (const attribute of attributes) {
-      if (attribute === '' || attribute === undefined || attribute === null)
+      if (!attribute || attribute === undefined || attribute === null)
         throw new Error(`[Velocity] Invalid attribute provided: ${attribute}`);
     }
 
@@ -86,7 +87,7 @@ export class Velocity {
   }
 
   private _buildRequestedAttributes(
-    attributes: string[]
+    attributes: TValidAttributes[]
   ): IRequestedAttributes {
     const attributeObject: IRequestedAttributes = {};
 
