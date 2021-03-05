@@ -1,2 +1,6 @@
 export {Velocity} from './handler/Velocity';
-export {IAttributeScores, IVelocityOptions} from './util/Types';
+export {
+  IAttributeScores,
+  IVelocityOptions,
+  TValidAttributes,
+} from './util/Types';
