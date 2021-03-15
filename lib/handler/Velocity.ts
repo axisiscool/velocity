@@ -49,8 +49,7 @@ export class Velocity {
       const scoreValues: IAttributeScores = {};
 
       for (const attribute in attributeScores) {
-        // eslint-disable-next-line no-prototype-builtins
-        if (attributeScores.hasOwnProperty(attribute)) {
+        if (attributeScores[attribute]) {
           scoreValues[attribute] = parseFloat(
             attributeScores[attribute].summaryScore.value
           );
