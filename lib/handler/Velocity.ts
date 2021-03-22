@@ -1,4 +1,4 @@
-import req from '@helperdiscord/centra';
+import req from 'petitio';
 import {
   IVelocityOptions,
   IAnalyzeCommentRequest,

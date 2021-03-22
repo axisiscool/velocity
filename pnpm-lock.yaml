@@ -1,5 +1,5 @@
 dependencies:
-  '@helperdiscord/centra': 2.0.4
+  petitio: 1.0.0
   striptags: 3.1.1
 devDependencies:
   '@types/node': 14.14.31
@@ -48,10 +48,6 @@ packages:
       node: ^10.12.0 || >=12.0.0
     resolution:
       integrity: sha512-1JTKgrOKAHVivSvOYw+sJOunkBjUOvjqWk1DPja7ZFhIS2mX/4EgTT8M7eTK9jrKhL/FvXXEbQwIs3pg1xp3dg==
-  /@helperdiscord/centra/2.0.4:
-    dev: false
-    resolution:
-      integrity: sha512-AwXWeKAQaXi/dkNq4u8b1+lHRIpZ9H5p+v/7D6TIdNwCDVv0qO4BkBuFHU/KNP2K7HvGkdr6mO7DrRErxCDaMQ==
   /@nodelib/fs.scandir/2.1.4:
     dependencies:
       '@nodelib/fs.stat': 2.0.4
@@ -1650,6 +1646,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
+  /petitio/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-HdFDpFq35TGZ22o7pPH/QN48OVRcNMrWRYRds6WjmHRfApdzge4hOODAGaRIxHdhny8DFO3PvQ2PAnME2NJgdw==
   /picomatch/2.2.2:
     dev: true
     engines:
@@ -2253,8 +2253,8 @@ packages:
     resolution:
       integrity: sha512-AP1+fQIWSM/sMiET8fyayjx/J+JmTPt2Mr0FkrgqB4todtfa53sOsrSAcIrJRD5XS20bKUwaDIuMkWKCEiQLKA==
 specifiers:
-  '@helperdiscord/centra': ^2.0.4
   '@types/node': ^14.11.2
   gts: ^3.1.0
+  petitio: ^1.0.0
   striptags: ^3.1.1
   typescript: 4.1.5
