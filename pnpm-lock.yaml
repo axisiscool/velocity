@@ -1,5 +1,5 @@
 dependencies:
-  petitio: 1.0.0
+  petitio: 1.1.0
   striptags: 3.1.1
 devDependencies:
   '@types/node': 14.14.31
@@ -1646,10 +1646,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
-  /petitio/1.0.0:
+  /petitio/1.1.0:
     dev: false
     resolution:
-      integrity: sha512-HdFDpFq35TGZ22o7pPH/QN48OVRcNMrWRYRds6WjmHRfApdzge4hOODAGaRIxHdhny8DFO3PvQ2PAnME2NJgdw==
+      integrity: sha512-f/KmNTInqy3LIwqQMmo3Lt93EsYTC8eDvFTS9UaUV2QA9GIFXqgly1FypKuWD3H9QhGJxZWoRYG8EWX/zoWaTg==
   /picomatch/2.2.2:
     dev: true
     engines:
@@ -2255,6 +2255,6 @@ packages:
 specifiers:
   '@types/node': ^14.11.2
   gts: ^3.1.0
-  petitio: ^1.0.0
+  petitio: ^1.1.0
   striptags: ^3.1.1
   typescript: 4.1.5
