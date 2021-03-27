@@ -14,10 +14,17 @@ export class Velocity {
   private apiUrl!: string;
 
   constructor(apiKey: string) {
+    // Register the API key and provide it to the base URL for requests.
     this.apiKey = apiKey;
     this.apiUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
   }
 
+  /**
+   * Processes a string (with optional paramters) and returns the scores for the specified request.
+   * @param message The string you want to process.
+   * @param reqOptions Options for the request.
+   * @returns IAttributeScores
+   */
   public async processMessage(
     message: string,
     reqOptions: IVelocityOptions = {}
@@ -62,6 +69,10 @@ export class Velocity {
     }
   }
 
+  /**
+   * Validates the string provided to the processMessage() function.
+   * @param message The string we want to validate.
+   */
   private _validateString(message: string): void {
     if (message === '')
       throw new Error('[Velocity] Message provided should not be empty.');
@@ -71,6 +82,11 @@ export class Velocity {
       );
   }
 
+  /**
+   * Validates the attributes provided to the processMessage() function.
+   * @param attributes An array of attributes we want to provide to the API.
+   * @returns boolean
+   */
   private _validAttributes(attributes: TValidAttributes[]): boolean {
     if (!attributes.length)
       throw new Error(
@@ -85,6 +101,11 @@ export class Velocity {
     return true;
   }
 
+  /**
+   * Builds the validated attributes.
+   * @param attributes An array of attributes we want to provide to the API.
+   * @returns IRequestedAttributes
+   */
   private _buildRequestedAttributes(
     attributes: TValidAttributes[]
   ): IRequestedAttributes {
@@ -97,6 +118,11 @@ export class Velocity {
     return attributeObject;
   }
 
+  /**
+   * The actual function which processes the message and returns the object back.
+   * @param object The actual request provided by the processMessage() function.
+   * @returns IAnalysisResults
+   */
   private async _analyzeMessage(
     object: IAnalyzeCommentRequest
   ): Promise<IAnalysisResults> {

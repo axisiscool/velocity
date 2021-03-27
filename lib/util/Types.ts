@@ -1,3 +1,6 @@
+/**
+ * Type for valid attributes for the API.
+ */
 export type TValidAttributes =
   | 'TOXICITY'
   | 'TOXICITY_EXPERIMENTAL'
@@ -24,6 +27,9 @@ export type TValidAttributes =
   | 'SPAM'
   | 'UNSUBSTANTIAL';
 
+/**
+ * Options to provide to the processMessage() function.
+ */
 export interface IVelocityOptions {
   attributes?: TValidAttributes[];
   context?: IContext;
@@ -32,6 +38,9 @@ export interface IVelocityOptions {
   stripHtml?: boolean;
 }
 
+/**
+ * Optional object to provide to the request for context.
+ */
 export interface IContext {
   entries: Array<{
     text?: string;
@@ -39,6 +48,9 @@ export interface IContext {
   }>;
 }
 
+/**
+ * Model for requested attributes.
+ */
 export interface IRequestedAttributes {
   [attribute: string]: {
     scoreType?: string;
@@ -46,6 +58,9 @@ export interface IRequestedAttributes {
   };
 }
 
+/**
+ * Model for requests to the API.
+ */
 export interface IAnalyzeCommentRequest {
   comment: {
     text: string;
@@ -58,6 +73,9 @@ export interface IAnalyzeCommentRequest {
   doNotStore?: boolean;
 }
 
+/**
+ * Returned results from the API.
+ */
 export interface IAnalysisResults {
   attributeScores: {
     [attribute: string]: {
@@ -68,6 +86,9 @@ export interface IAnalysisResults {
   };
 }
 
+/**
+ * Returned scores parsed from IAnalysisResults.
+ */
 export interface IAttributeScores {
   [attribute: string]: number;
 }
