@@ -126,8 +126,9 @@ export class Velocity {
   private async _analyzeMessage(
     object: IAnalyzeCommentRequest
   ): Promise<IAnalysisResults> {
-    const request = await req(this.apiUrl).body(object).method('POST').send();
-
-    return request.json();
+    return await req(this.apiUrl)
+      .body(object)
+      .method('POST')
+      .json<IAnalysisResults>();
   }
 }
