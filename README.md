@@ -2,39 +2,63 @@
 
 A super fast API Wrapper for Perspective.
 
+### Requirements
+* Node >= 12
+* Perspective API Access
+
 ### Installation
 
-Run: `npm i velocity-api` in your project.
+Install using one of these commands (depending on your package manager):
+```
+npm i velocity-api
+pnpm i velocity-api
+yarn add velocity-api
+```
 
 ### Example Usage
 
+* Note: This is a basic usage guide.
+
+#### Typescript:
 ```ts
-import {Velocity} from 'velocity-api';
-// OR in JavaScript
-const {Velocity} = require('velocity-api');
+import { Velocity } from 'velocity-api';
 
-// Instantiate the Velocity class below.
-const velocity = new Velocity('API_KEY');
-
-// Then, proceed to run the function to process your scores.
 (async () => {
-    const scores = await velocity.processMessage('I hate people.', { 
-        'context.entries': null, // A list of objects providing the context for text. Defaults to null, equivalent to an empty list.
-    
-        attributes: ['SPAM', 'TOXICITY'], // https://support.perspectiveapi.com/s/about-the-api-attributes-and-languages
+  const manager = new Velocity('PERSPECTIVE_API_KEY');
 
-        languages: ['en'], // A list of ISO 631-1 two-letter language codes specifying the language(s) that message is in (for example, "en", "es", "fr", etc). Default: ["EN"]
+  const scores = await manager.processMessage('I don\'t like you!', {
+    attributes: ['SPAM', 'SEVERE_TOXICITY'],
+    languages: ['en'],
+    doNotStore: true,
+    stripHtml: false,
+  });
 
-        doNotStore: true, // Whether the API is permitted to store the text and context.
+  // The returned value is an object of the attributes and their score.
+  console.log(scores.SPAM);
+  console.log(scores.SEVERE_TOXICITY);
+})();
+```
 
-        stripHtml: true // A boolean specifying whether to strip html tags from message.
-    });
+#### Javascript:
+```js
+const { Velocity } = require('velocity-api');
 
-    console.log(scores.SPAM) // SPAM: 0.25
-    console.log(scores.TOXICITY) // TOXICITY: 0.65
+(async () => {
+  const manager = new Velocity('PERSPECTIVE_API_KEY');
+
+  const scores = await manager.processMessage('I don\'t like you!', {
+    attributes: ['SPAM', 'SEVERE_TOXICITY'],
+    languages: ['en'],
+    doNotStore: true,
+    stripHtml: false,
+  });
+
+  // The returned value is an object of the attributes and their score.
+  console.log(scores.SPAM);
+  console.log(scores.SEVERE_TOXICITY);
 })();
 ```
 
 ### License
 
-This repository is licensed under the `Apache 2.0 License`
+This repository is licensed under the [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0.txt).
