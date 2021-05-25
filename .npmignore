@@ -1,5 +1,7 @@
 .prettierrc.js
 .eslintrc.json
 .eslintignore
+.github/
 LICENSE
+CHANGELOG.md
 lib/
