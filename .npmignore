@@ -3,4 +3,5 @@
 .eslintignore
 .github/
 LICENSE
+CHANGELOG.md
 lib/
