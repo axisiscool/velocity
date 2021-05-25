@@ -1,0 +1,5 @@
+.prettierrc.js
+.eslintrc.json
+.eslintignore
+LICENSE
+lib/
