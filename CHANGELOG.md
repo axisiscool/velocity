@@ -1,5 +1,9 @@
 # Changelog
 
+### v1.2.1
+
+- Fix file imports
+
 ### v1.2.0
 
 - Widescale performance improvements.
