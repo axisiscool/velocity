@@ -6,7 +6,7 @@ import {
   IAnalysisResults,
   IAttributeScores,
   TValidAttributes,
-} from "../util/Types";
+} from "../util/types";
 import stripTags from "striptags";
 
 export class Velocity {
