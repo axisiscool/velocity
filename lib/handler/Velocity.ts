@@ -1,4 +1,4 @@
-import req from 'petitio';
+import req from "petitio";
 import {
   IVelocityOptions,
   IAnalyzeCommentRequest,
@@ -6,17 +6,19 @@ import {
   IAnalysisResults,
   IAttributeScores,
   TValidAttributes,
-} from '../util/Types';
-import stripTags from 'striptags';
+} from "../util/Types";
+import stripTags from "striptags";
 
 export class Velocity {
-  private readonly apiKey!: string;
-  private apiUrl!: string;
+  #apiKey: string;
+  private apiUrl: string;
 
   constructor(apiKey: string) {
     // Register the API key and provide it to the base URL for requests.
-    this.apiKey = apiKey;
-    this.apiUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${this.apiKey}`;
+    this.#apiKey = apiKey;
+    this.apiUrl = `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${
+      this.#apiKey
+    }`;
   }
 
   /**
@@ -30,10 +32,10 @@ export class Velocity {
     reqOptions: IVelocityOptions = {}
   ): Promise<IAttributeScores> {
     const {
-      attributes = ['SPAM', 'TOXICITY'],
+      attributes = ["SPAM", "TOXICITY"],
       context,
       doNotStore = true,
-      languages = ['en'],
+      languages = ["en"],
       stripHtml = true,
     } = reqOptions;
 
@@ -52,15 +54,15 @@ export class Velocity {
 
     try {
       const response = await this._analyzeMessage(request);
-      const {attributeScores} = response;
+      const { attributeScores } = response;
       const scoreValues: IAttributeScores = {};
 
-      for (const attribute in attributeScores) {
-        if (attributeScores[attribute]) {
-          scoreValues[attribute] = parseFloat(
-            attributeScores[attribute].summaryScore.value
+      const keys = Object.keys(attributeScores);
+      for (let i = 0, l = keys.length; i !== l; ++i) {
+        if (attributeScores[keys[i]])
+          scoreValues[keys[i]] = parseFloat(
+            attributeScores[keys[i]].summaryScore.value
           );
-        }
       }
 
       return scoreValues;
@@ -74,11 +76,11 @@ export class Velocity {
    * @param message The string we want to validate.
    */
   private _validateString(message: string): void {
-    if (message === '')
-      throw new Error('[Velocity] Message provided should not be empty.');
+    if (!message.length)
+      throw new Error("[Velocity] Message provided should not be empty.");
     if (message.length > 3000)
       throw new Error(
-        '[Velocity] Message provided is too long (more than 3000 characters).'
+        "[Velocity] Message provided is too long (more than 3000 characters)."
       );
   }
 
@@ -90,12 +92,14 @@ export class Velocity {
   private _validAttributes(attributes: TValidAttributes[]): boolean {
     if (!attributes.length)
       throw new Error(
-        '[Velocity] Please provide at least one attribute to score.'
+        "[Velocity] Please provide at least one attribute to score."
       );
 
-    for (const attribute of attributes) {
-      if (!attribute || attribute === undefined || attribute === null)
-        throw new Error(`[Velocity] Invalid attribute provided: ${attribute}`);
+    for (let i = 0, l = attributes.length; i !== l; ++i) {
+      if (!attributes[i])
+        throw new Error(
+          `[Velocity] Invalid attribute provided: ${attributes[i]}`
+        );
     }
 
     return true;
@@ -111,9 +115,8 @@ export class Velocity {
   ): IRequestedAttributes {
     const attributeObject: IRequestedAttributes = {};
 
-    for (const attribute of attributes) {
-      attributeObject[attribute] = {};
-    }
+    for (let i = 0, l = attributes.length; i !== l; ++i)
+      attributeObject[attributes[i]] = {};
 
     return attributeObject;
   }
@@ -128,7 +131,7 @@ export class Velocity {
   ): Promise<IAnalysisResults> {
     return await req(this.apiUrl)
       .body(object)
-      .method('POST')
+      .method("POST")
       .json<IAnalysisResults>();
   }
 }

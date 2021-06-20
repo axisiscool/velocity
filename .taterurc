@@ -1,0 +1,6 @@
+out_dir = 'dist'
+cjs = true
+
+[velocity]
+modules = 'lib/**/*.ts'
+minify = true

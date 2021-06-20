@@ -1,7 +1,7 @@
-.prettierrc.js
-.eslintrc.json
-.eslintignore
+.taterurc
 .github/
 LICENSE
 CHANGELOG.md
+README.md
+tsconfig.json
 lib/

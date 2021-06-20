@@ -2,27 +2,19 @@ name: Deploy (Production)
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js 15
+      - name: Setup Node.js 16
         uses: actions/setup-node@v1
         with:
-          node-version: 15.x
-      - uses: pnpm/action-setup@v1.2.1
-        with:
-          version: 5.15
-      - name: Use pnpm storage cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.pnpm-store/v3
-          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          node-version: 16.x
       - name: Install Dependencies
-        run: pnpm i --frozen-lockfile
+        run: yarn
       - name: NPM Publish
         uses: JS-DevTools/npm-publish@v1
         with:

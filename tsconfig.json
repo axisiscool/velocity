@@ -1,14 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "CommonJS",
-        "target": "ES2020",
-        "strict": true,
-        "outDir": "dist",
-        "esModuleInterop": true,
-        "baseUrl": ".",
-        "declarationDir": "dist",
-        "declaration": true,
-        "skipLibCheck": true
-    },
-    "include": ["lib/**/*.ts"]
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "strict": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "declarationDir": "dist",
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": ["lib/**/*.ts"]
 }
