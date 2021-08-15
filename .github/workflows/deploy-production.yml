@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Install Dependencies
+      - name: Install Dependencies and Build
         run: yarn install --frozen-lockfile
 
-      - name: Build
-        run: yarn build
+      - name: Run Tests
+        name: yarn test
   publish:
     name: Publish
     runs-on: ubuntu-latest

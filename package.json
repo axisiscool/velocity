@@ -1,6 +1,6 @@
 {
   "name": "velocity-api",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A super fast API Wrapper for Perspective.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,6 +9,7 @@
     "build:code": "tateru",
     "build:exports": "gen-esm-wrapper dist/index.js dist/index.mjs",
     "build:types": "shx cp src/index.d.ts dist/index.d.ts",
+    "test": "node test.js",
     "prepare": "yarn build"
   },
   "keywords": [
@@ -34,7 +35,8 @@
     "gen-esm-wrapper": "^1.1.2",
     "npm-run-all": "^4.1.5",
     "shx": "^0.3.3",
-    "tateru": "^0.0.9"
+    "tateru": "^0.0.9",
+    "uvu": "^0.5.1"
   },
   "engines": {
     "node": ">=14.0.0"

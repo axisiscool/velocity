@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.0.3
+
+- **Changes:**
+  - Unit tests.
+
 ### v2.0.2
 
 - **Changes:**
