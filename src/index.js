@@ -33,15 +33,17 @@ class Velocity {
     };
 
     try {
-      const { attributeScores } = await this.#analyzeMessage(request);
+      const response = await this.#analyzeMessage(request);
       const scoreVals = Object.create(null);
 
-      const keys = Object.keys(attributeScores);
-      for (var i = 0; i !== keys.length; ++i)
-        if (attributeScores[keys[i]])
-          scoreVals[keys[i]] = Number.parseFloat(
-            attributeScores[keys[i]].summaryScore.value
+      const keys = Object.keys(response.attributeScores);
+      for (var i = 0; i !== keys.length; ++i) {
+        const k = keys[i];
+        if (response.attributeScores[k])
+          scoreVals[k] = Number.parseFloat(
+            response.attributeScores[k].summaryScore.value
           );
+      }
 
       return scoreVals;
     } catch (ex) {
@@ -54,10 +56,12 @@ class Velocity {
    * @param message The string we want to validate.
    */
   #validateString(message) {
-    if (message.length === 0)
-      throw new Error('Message provided should not be empty.');
-    if (message.length > 3000)
-      throw new Error('Message should be under 3,000 characters.');
+    switch (true) {
+      case message.length === 0:
+        throw new Error('Message provided should not be empty');
+      case message.length > 3000:
+        throw new Error('Message should be under 3,000 characters.');
+    }
   }
 
   /**
@@ -67,10 +71,10 @@ class Velocity {
   #validateAttributes(attributes) {
     if (attributes.length < 1)
       throw new Error('Please provide at least one attribute to score.');
-
-    for (var i = 0; i !== attributes.length; ++i)
-      if (attributes[i] === undefined)
-        throw new Error(`Invalid attribute provided: ${attributes[i]}`);
+    for (var i = 0; i !== attributes.length; ++i) {
+      const k = attributes[i];
+      if (k === undefined) throw new Error(`Invalid attribute provided: ${k}`);
+    }
   }
 
   /**
@@ -90,12 +94,11 @@ class Velocity {
    */
   async #analyzeMessage(object) {
     return fetch(
-      `https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=${
-        this.#key
-      }`,
+      'https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze',
       'POST'
     )
       .body(object)
+      .query('key', this.#key)
       .json();
   }
 }

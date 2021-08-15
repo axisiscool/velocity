@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.0.2
+
+- **Changes:**
+  - General performance improvements.
+
 ### v2.0.1
 
 - **Breaking:**
