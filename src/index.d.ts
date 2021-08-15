@@ -44,7 +44,6 @@ export interface IVelocityOptions {
   context?: IContext;
   doNotStore?: boolean;
   languages?: string[];
-  stripHtml?: boolean;
 }
 
 export interface IAttributeScores {

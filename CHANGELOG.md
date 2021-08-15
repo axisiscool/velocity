@@ -1,5 +1,10 @@
 # Changelog
 
+### v2.0.1
+
+- **Breaking:**
+  - Remove `strip-tags` module and `stripTags` option.
+
 ### v2.0.0
 
 - **Breaking:**

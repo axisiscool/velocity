@@ -1,4 +1,3 @@
-const stripTags = require('striptags');
 const fetch = require('petitio');
 
 class Velocity {
@@ -18,7 +17,6 @@ class Velocity {
       context,
       doNotStore = true,
       languages = ['en'],
-      stripHtml = true,
     } = options;
 
     this.#validateString(message);
@@ -26,7 +24,7 @@ class Velocity {
 
     const request = {
       comment: {
-        text: stripHtml === true ? stripTags(message) : message,
+        text: message,
       },
       context,
       doNotStore,
