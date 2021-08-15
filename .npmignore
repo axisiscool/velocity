@@ -1,7 +1,6 @@
 .gitattributes
 .taterurc
 .github/
-LICENSE
+.prettierrc
 CHANGELOG.md
-tsconfig.json
-lib/
+src/

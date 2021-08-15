@@ -1,5 +1,13 @@
 # Changelog
 
+### v2.0.0
+
+- **Breaking:**
+  - Made minimum node version >=14.
+- **Changes**:
+  - JavaScript rewrite with major performance improvements.
+  - Decreased package size.
+
 ### v1.2.1
 
 - Fix file imports
