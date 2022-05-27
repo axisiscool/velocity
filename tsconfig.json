@@ -1,0 +1,16 @@
+{
+  "extends": "@sapphire/ts-config/extra-strict",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": false,
+    "importsNotUsedAsValues": "remove",
+    "module": "CommonJS",
+    "noImplicitReturns": false,
+    "outDir": "./dist",
+    "removeComments": true,
+    "sourceMap": false,
+    "target": "ESNext"
+  },
+  "include": ["src/**/*"]
+}

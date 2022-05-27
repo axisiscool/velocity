@@ -1,7 +1,0 @@
-.gitattributes
-.taterurc
-.github/
-.prettierrc
-test.js
-CHANGELOG.md
-src/

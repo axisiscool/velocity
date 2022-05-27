@@ -4,7 +4,7 @@ A super fast API Wrapper for Perspective.
 
 ### Requirements
 
-- Node >= 14
+- Node >= 16
 - Perspective API Access
 
 ### Installation
@@ -33,7 +33,6 @@ import { Velocity } from 'velocity-api';
     attributes: ['SPAM', 'SEVERE_TOXICITY'],
     languages: ['en'],
     doNotStore: true,
-    stripHtml: false,
   });
 
   // The returned value is an object of the attributes and their score.
@@ -54,7 +53,6 @@ const { Velocity } = require('velocity-api');
     attributes: ['SPAM', 'SEVERE_TOXICITY'],
     languages: ['en'],
     doNotStore: true,
-    stripHtml: false,
   });
 
   // The returned value is an object of the attributes and their score.

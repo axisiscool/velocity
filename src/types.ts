@@ -1,12 +1,3 @@
-export declare class Velocity {
-  constructor(key: string) {}
-
-  async processMessage(
-    message: string,
-    options: IVelocityOptions
-  ): Promise<IAttributeScores>;
-}
-
 export type TValidAttributes =
   | 'TOXICITY'
   | 'TOXICITY_EXPERIMENTAL'
@@ -48,4 +39,11 @@ export interface IVelocityOptions {
 
 export interface IAttributeScores {
   [attribute: string]: number;
+}
+
+export interface IRequestedAttributes {
+  [attribute: string]: {
+    scoreType?: string;
+    scoreThreshold?: number;
+  };
 }
