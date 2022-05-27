@@ -59,7 +59,6 @@ commit_parsers = [
 ]
 filter_commits = true
 tag_pattern = "[0-9]*"
-skip_tags = "v[0-9]*|11|12"
 ignore_tags = ""
 topo_order = false
 sort_commits = "newest"
