@@ -8,7 +8,7 @@
     "build": "run-s build:*",
     "build:code": "tsc",
     "build:exports": "gen-esm-wrapper dist/index.js dist/index.mjs",
-    "changelog": "cj --dry-run",
+    "changelog": "cj",
     "prepare": "yarn build"
   },
   "keywords": [
@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/axisiscool/velocity#readme",
   "dependencies": {
-    "petitio": "^1.4.0"
+    "petitio": "^1.4.0",
+    "tslib": "^2.4.0"
   },
   "devDependencies": {
     "@favware/cliff-jumper": "^1.8.0",

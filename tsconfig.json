@@ -10,6 +10,7 @@
     "outDir": "./dist",
     "removeComments": true,
     "sourceMap": false,
+    "skipLibCheck": true,
     "target": "ESNext"
   },
   "include": ["src/**/*"]
